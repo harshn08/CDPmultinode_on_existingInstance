@@ -1,25 +1,27 @@
 # CDPMultinodeDocker
 
-CDP Multinode script using Docker on Mac/Windows 10, This will create  brand new 6 instances ( 2 4xlarge and 2 2xlarge)
+CDP Multinode script using Docker on Mac/Windows 10, This will create  brand new 6 instances on AWS 
+(2 m5.4xlarge and 2 m52xlarge with stoarage of 100gb each )
 
 Updated on March 11 , 2020
 
 
 Assumptions
 
-		1> This document assumes that you have access to an AWS account.
-		2> Partners or their IT Dept can create their own VPC, Subnet, key-pair and security group in the same 			availability zone that will be used to create multi node instances in the script below.
-		3> Request cloudera license from partner portal . 
+		1> This document assumes that you have access to an AWS account.	
+		2> Request cloudera license from partner portal . 
 		4> Access to valid cloudera.com credentials to download binaries
-		5> Access to the relevant script from partner portal here.
-		6> Access to the following versions of docker are used for Mac OS and Windows 10 Pro. 
+		6> Access to the following versions of docker are used for Mac OS and Windows 10 Pro
+		https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+		https://hub.docker.com/editions/community/docker-ce-desktop-windows/
 
 AWS Dependencies
 
 		1> AWS keypair (e.g. “.pem”) files to use with the scripts
-		2> Decide on AWS region/AZ (us-east-1 used in this example)
-		3> Image Used: ami-02eac2c0129f6376b #CentOS-7 x86_64 
-		   (Ensure an equivalent CentOS image is available in your AZ)
+		2> Decide on AWS region and AZ (us-east-1 used in this example)
+		3> Ensure an equivalent CentOS image is available in your AZ
+		 Image Used: ami-02eac2c0129f6376b #CentOS-7 x86_64 
+		   
 		4> Create a VPC(or use default), subnet and Security Group (SG) where these nodes are in the same AZ. 
 		5> Record the SG to be used in the config files. Make sure the SG is open to all hosts in security group.
 		
