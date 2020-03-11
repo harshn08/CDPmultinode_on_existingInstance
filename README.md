@@ -2,7 +2,7 @@
 
 CDP Multinode script using Docker on Mac/Windows 10, This will create  brand new 6 instances ( 2 4xlarge and 2 2xlarge)
 
-Updated on March 10 , 2020
+Updated on March 11 , 2020
 
 
 Assumptions
