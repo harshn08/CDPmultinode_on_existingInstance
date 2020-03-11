@@ -38,7 +38,8 @@ Download and licence info:
 		CSP: https://www.cloudera.com/downloads/cdf/csp-trial.html(Version 0.8 - sha, parcel files and CSD or latest) 
 		CSM: https://www.cloudera.com/downloads/cdf/csm-trial.html(Version 2.0 - sha, parcel files and CSD or latest)
 
-	NOTE: Make sure the SCHEMAREGISTRY, STREAMS_MESSAGING_MANAGER and STREAMS_REPLICATION_MANAGER files are in the “bins” 		    directory before executing the ansible playbook. 
+	NOTE: Make sure the SCHEMAREGISTRY, STREAMS_MESSAGING_MANAGER and STREAMS_REPLICATION_MANAGER files are 
+	in the “bins” directory before executing the ansible playbook. 
 
 Docker Setup:
 
@@ -54,8 +55,8 @@ Docker Setup:
 	Mac Example: $docker run -it --volume /Users/ssharma:/home/ssharma myfedora /bin/bash
 	Windows Example: $docker run -it --volume C:\Users\ashish:/home/ashish myfedora /bin/bash
 		
-	7> At this time, you have a docker engine with all the relevant files mapped to your home directory eg: /home/ssharma. 
-	Next,we will prep the docker container and customize these files . 
+	7> At this time, you have a docker engine with all the relevant files mapped to your home directory 
+	eg: /home/ssharma.  Next,we will prep the docker container and customize these files . 
         8> Install pyhton3 and boto3 in your Docker image 
 	
 		[root@2e3f9e83cf7a  ~]# dnf update -y
@@ -93,12 +94,14 @@ Docker Setup:
   	 -----END RSA PRIVATE KEY-----
    
   	NOTE: Record the private key name (ex here is sunita_key) which will be used later in the config files
-   
- 	You will be asked to enter a password. Save the password. You can use this password in case you want to view or edit the file at a later stage. Use ansible-vault view or ansible-vault edit to make changes
+	
+   	You will be asked to enter a password. Save the password. You can use this password in case you want to 
+	view or edit the file at a later stage. Use ansible-vault view or ansible-vault edit to make changes
 	   
 		[root@2e3f9e83cf7a  ~]#ls -ltr /home/ssharma/ssharma_keys.vault (verify)
 		
-	12> On docker, let's now create a simple file to store the Vault password, so you won't be prompted at runtime, and lock it. Create the file under your home directory
+	12> On docker, let's now create a simple file to store the Vault password, so you won't be prompted at runtime,
+	Create the file under your home directory
 		[root@2e3f9e83cf7a  ~]#echo "YourPassword" > vault-password-file
 		[root@2e3f9e83cf7a  ~]#chmod 400 vault-password-file
 		
@@ -111,14 +114,19 @@ Docker Setup:
 
 Modify the configuration file:
 
-	At this point, you should have the script under a folder called mn-script. This folder should have the bin directory. We will also need access to the vault, pem and password files that are stored in the home directory.The home directory should be accessible via docker mapping of the folders. 
+At this point, you should have the script under a folder called mn-script.This folder should have the bin directory. 
+We will also need access to the vault, pem and password files that are stored in the home directory.
+The home directory should be accessible via docker mapping of the folders. 
 
 	1>Open ../config/stock.infra.aws.yml file
-	2>Make changes to parameters in stock.infra.aws.krb.yml where it says <replace me>. Change owner ,project and enddate. Specify the correct vpc,region,subnet and security group.
+	2>Make changes to parameters in stock.infra.aws.krb.yml where it says <replace me>. 
+	eg Owner,project,enddate,vpc,region,subnet and security group.
+	
 	 region: us-east-1 <replace me>
 	 subnet: subnet-76505a3cxx<replace me>
   	 security_group: sg-010c70ad828ad9axx<replace me>
          image: ami-02eac2c0129f6376b <replace me> # CentOS-7 x86_6
+       
        tags:
         owner: user.test<replace me>
         enddate: "01312020"<replace me>
@@ -144,7 +152,7 @@ Modify the configuration file:
    	           - /home/ssharma/bins/SCHEMAREGISTRY-0.8.0.jar <replace me>
   	           - /home/ssharma/bins/STREAMS_MESSAGING_MANAGER-2.1.0.jar<replace me>
 	    local_parcels: 
- 	    	- /home/ssharma/bins/SCHEMAREGISTRY-0.8.0.2.0.0.0-135-el7.parcel<<replace me>>
+ 	    	- /home/ssharma/bins/SCHEMAREGISTRY-0.8.0.2.0.0.0-135-el7.parcel<replace me>>
       	     	- /home/ssharma/bins/SCHEMAREGISTRY-0.8.0.2.0.0.0-135-el7.parcel.sha<replace me>
       	     	- /home/ssharma/bins/STREAMS_MESSAGING_MANAGER-2.1.0.2.0.0.0-135-el7.parcel<replace me>
              	- /home/ssharma/bins/STREAMS_MESSAGING_MANAGER-2.1.0.2.0.0.0-135-el7.parcel.sha<replace me>
