@@ -18,9 +18,10 @@ AWS Dependencies
 
 		1> AWS keypair (e.g. “.pem”) files to use with the scripts
 		2> Decide on AWS region/AZ (us-east-1 used in this example)
-		Image Used: ami-02eac2c0129f6376b #CentOS-7 x86_64 (Ensure an equivalent CentOS image is available in your AZ)
-		3>Create a VPC(or use default), subnet and Security Group (SG) where these nodes are in the same AZ. 
-		4> Record the SG to be used in the config files. Make sure the SG is open to all hosts in security group.
+		3> Image Used: ami-02eac2c0129f6376b #CentOS-7 x86_64 
+		   (Ensure an equivalent CentOS image is available in your AZ)
+		4> Create a VPC(or use default), subnet and Security Group (SG) where these nodes are in the same AZ. 
+		5> Record the SG to be used in the config files. Make sure the SG is open to all hosts in security group.
 		
 Download and licence info:
 
