@@ -7,20 +7,20 @@ Updated on March 10 , 2020
 
 Assumptions
 
-		This document assumes that you have access to an AWS account.
-		Partners or their IT Dept can create their own VPC, Subnet, key-pair and security group in the same 			availability zone that will be used to create multi node instances in the script below.
-		Request cloudera license from partner portal . 
-		Access to valid cloudera.com credentials to download binaries
-		Access to the relevant script from partner portal here.
-		Access to the following versions of docker are used for Mac OS and Windows 10 Pro. 
+		1> This document assumes that you have access to an AWS account.
+		2> Partners or their IT Dept can create their own VPC, Subnet, key-pair and security group in the same 			availability zone that will be used to create multi node instances in the script below.
+		3> Request cloudera license from partner portal . 
+		4> Access to valid cloudera.com credentials to download binaries
+		5> Access to the relevant script from partner portal here.
+		6> Access to the following versions of docker are used for Mac OS and Windows 10 Pro. 
 
 AWS Dependencies
 
-		AWS keypair (e.g. “.pem”) files to use with the scripts
-		Decide on AWS region/AZ (us-east-1 used in this example)
+		1> AWS keypair (e.g. “.pem”) files to use with the scripts
+		2> Decide on AWS region/AZ (us-east-1 used in this example)
 		Image Used: ami-02eac2c0129f6376b #CentOS-7 x86_64 (Ensure an equivalent CentOS image is available in your AZ)
-		Create a VPC(or use default), subnet and Security Group (SG) where these nodes are in the same AZ. 
-		Record the SG to be used in the config files. Make sure the SG is open to all hosts inside the security group.
+		3>Create a VPC(or use default), subnet and Security Group (SG) where these nodes are in the same AZ. 
+		4> Record the SG to be used in the config files. Make sure the SG is open to all hosts in security group.
 		
 Download and licence info:
 
@@ -92,19 +92,19 @@ Docker Setup:
   	 dfasdgretwreaqghaduogihafdkghareoighfdk=
   	 -----END RSA PRIVATE KEY-----
    
-  NOTE: Record the private key name (ex here is sunita_key) which will be used later in the config files
+  	NOTE: Record the private key name (ex here is sunita_key) which will be used later in the config files
    
- You will be asked to enter a password. Save the password. You can use this password in case you want to view or edit the file at a later stage. Use ansible-vault view or ansible-vault edit to make changes
+ 	You will be asked to enter a password. Save the password. You can use this password in case you want to view or edit the file at a later stage. Use ansible-vault view or ansible-vault edit to make changes
 	   
 		[root@2e3f9e83cf7a  ~]#ls -ltr /home/ssharma/ssharma_keys.vault (verify)
 		
-12> On docker, let's now create a simple file to store the Vault password, so you won't be prompted at runtime, and lock it. Create the file under your home directory
+	12> On docker, let's now create a simple file to store the Vault password, so you won't be prompted at runtime, and lock it. Create the file under your home directory
 		[root@2e3f9e83cf7a  ~]#echo "YourPassword" > vault-password-file
 		[root@2e3f9e83cf7a  ~]#chmod 400 vault-password-file
 		
-NOTE: Record the file path and file name. We will use it in the config files
+	NOTE: Record the file path and file name. We will use it in the config files
 
-13> On docker export variables for the AWS keys as below:
+	13> On docker export variables for the AWS keys as below:
             
 	    export AWS_ACCESS_KEY_ID=AKIAQxxxxxx
   	    export AWS_SECRET_ACCESS_KEY=uOI3N5KQZ8zbxxxxxxxxxx
@@ -160,7 +160,7 @@ Modify the configuration file:
 
 Now are ready to execute the ansible playbook from mn-script folder.
 
-	$ansible-playbook site.yml -e "infra=config/stock.infra.aws.yml" -e "cluster=config/stock.cluster.krb.yml"  -e "vault= <path-to-keys.vault-file>" -e "cdpdc_teardown=<userid-date>" -e "public_key=<name_of_public_key_AWS>"
+  $ansible-playbook site.yml -e "infra=config/stock.infra.aws.yml" -e "cluster=config/stock.cluster.krb.yml"  -e "vault= <path-to-keys.vault-file>" -e "cdpdc_teardown=<userid-date>" -e "public_key=<name_of_public_key_AWS>"
 
 Example:
 
@@ -168,10 +168,10 @@ Example:
 
 After End of Successful Execution, You will see something like below as a Recap:
 
-TASK [cdpdc_cm_server : reset var _api_command] **************************************************************************************************************************************************************************************************************************************
+TASK [cdpdc_cm_server : reset var _api_command] ******************************************************************************************************************************
 ok: [54.91.49.29]
 
-PLAY RECAP ***************************************************************************************************************************************************************************************************************************************************************************
+PLAY RECAP ******************************************************************************************************************************
 100.24.8.58                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
 3.94.167.42                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
 52.90.154.199              : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
