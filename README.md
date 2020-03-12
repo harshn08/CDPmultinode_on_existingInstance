@@ -21,7 +21,6 @@ AWS Dependencies
 		2> Decide on AWS region and AZ (us-east-1 used in this example)
 		3> Ensure an equivalent CentOS image is available in your AZ
 		 Image Used: ami-02eac2c0129f6376b #CentOS-7 x86_64 
-		   
 		4> Create a VPC(or use default), subnet and Security Group (SG) where these nodes are in the same AZ. 
 		5> Record the SG to be used in the config files. Make sure the SG is open to all hosts in security group.
 		
