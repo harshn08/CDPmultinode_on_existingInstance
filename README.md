@@ -1,8 +1,9 @@
-# CDPMultinodeDocker
+# CDPMultinodeDocker on existing cluster with CDF and CDSW
 
 CDP Multinode script using Docker on Mac/Windows 10, This will create CDP DC on Existing 6 Instaces of AWS 
 (2 m5.4xlarge and 2 m52xlarge with stoarage of 100gb each )
-Important to note : all instances should be clean with olny OS installed, previous traces of installation may result in script failure
+Important to note : All instances should be clean with only OS installed on them, previous traces of installation may result 
+in script failure.
 
 Updated on March 12 , 2020
 
@@ -233,10 +234,11 @@ Example:
 After End of Successful Execution, You will see something like below as a Recap:
 
 
-TASK [cdpdc_cm_server : reset var _api_command] ******************************************************************************************************************************
+TASK [cdpdc_cm_server : reset var _api_command] ***************************************************************************************************************
+
 ok: [54.91.49.29]
 
-PLAY RECAP ******************************************************************************************************************************
+PLAY RECAP *****************************************************************************************************
 100.24.8.58                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
 3.94.167.42                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
 52.90.154.199              : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
