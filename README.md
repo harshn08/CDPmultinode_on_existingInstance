@@ -26,7 +26,7 @@ AWS Dependencies:
 	          Make a note for all the existing private and public IP’s of instances with AZ, VPC,subnet, SG.
 	       4> Give names, add tags to each instances so you know the purpose of each
 	          instances eg:CDF_master,main_master,CDSW,Workernode1,2,3
-		5> ssh into every instnace to make sure your your pem file works and you have access to all 6 nodes.	  
+		5> ssh into every instnace to make sure pem file works and you have access to all 6 nodes.	  
 
 Download and licence info:
 
