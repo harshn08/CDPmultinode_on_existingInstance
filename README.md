@@ -1,6 +1,6 @@
 # CDPMultinodeDocker
 
-CDP Multinode script using Docker on Mac/Windows 10, This will create  brand new 6 instances on AWS 
+CDP Multinode script using Docker on Mac/Windows 10, This will create CDP DC on Existing 6 Instaces of AWS 
 (2 m5.4xlarge and 2 m52xlarge with stoarage of 100gb each )
 Important to note : all instances should be clean with olny OS installed, previous traces of installation may result in script failure
 
