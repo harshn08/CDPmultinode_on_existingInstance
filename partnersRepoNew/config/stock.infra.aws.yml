@@ -9,18 +9,18 @@ db:
 instances:
   cloud: aws              # aws, azure, gcp, openstack (field cloud on OpenStack)
 
-  # defaults for all instance groups
-  region: us-east-1
-  subnet: subnet-76505a3c
-  security_group: sg-010c70ad828ad9a20
-  image: ami-02eac2c0129f6376b # CentOS-7 x86_64
+  # defaults for all instance groups 
+  region: us-east-1 <replace me>
+  subnet: subnet-76505a3c <replace me>
+  security_group: sg-010c70ad828ad9a20 <replace me>
+  image: ami-02eac2c0129f6376b # CentOS-7 x86_64 <replace me>
   user: centos
   public_key_id: "{{ public_key }}"  
   bootstrap: ""
   tags:
-    owner: sunita.sharma
-    enddate: "01312020"
-    project: ansible-sstest
+    owner: sunita.sharma <replace me>
+    enddate: "01312020" <replace me>
+    project: ansible-sstest <replace me>>
   
   instance_groups:
     - inventory_group: 
