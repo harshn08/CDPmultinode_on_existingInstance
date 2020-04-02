@@ -1,4 +1,4 @@
-# CDP Multinode Cluster on Docker with existing cluster ( CDF and CDSW )
+# CDP Multinode Cluster on Docker with existing cluster ( CDF(Nifi/Kafka) and CDSW(ML) )
 
 CDP Multinode script using Docker on Mac/Windows 10, This will create CDP DC on Existing 6 Instaces of AWS 
 (2 m5.4xlarge and 2 m52xlarge with stoarage of 100gb each )
