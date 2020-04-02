@@ -234,17 +234,16 @@ Example:
 After End of Successful Execution, You will see something like below as a Recap:
 
 
-TASK [cdpdc_cm_server : reset var _api_command] ***************************************************************************************************************
+	TASK [cdpdc_cm_server : reset var _api_command] **********************************************************************************************************
 
-ok: [54.91.49.29]
-
-PLAY RECAP *****************************************************************************************************
-100.24.8.58                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
-3.94.167.42                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
-52.90.154.199              : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
-54.208.14.90               : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
-54.85.168.49               : ok=57   changed=37   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
-54.91.49.29                : ok=118  changed=56   unreachable=0    failed=0    skipped=2    rescued=0    ignored=1   
+	ok: [54.91.49.29]
+	PLAY RECAP *****************************************************************************************************
+	100.24.8.58                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+	3.94.167.42                : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+	52.90.154.199              : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+	54.208.14.90               : ok=31   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+	54.85.168.49               : ok=57   changed=37   unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+	54.91.49.29                : ok=118  changed=56   unreachable=0    failed=0    skipped=2    rescued=0    ignored=1   
 
 Use cm node ( 4xlarge ) to get into CM to verify the cluster status
 above example shows [54.91.49.29] as cm server
